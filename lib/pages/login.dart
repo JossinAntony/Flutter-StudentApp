@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_student_app/datamodel/studentmodel.dart';
 
 class MyApp extends StatelessWidget {
   void _tapButton() {
@@ -100,15 +101,22 @@ class MyApp extends StatelessWidget {
                         color: Colors.cyanAccent,
                       ),
                       */
-                      Container(
-                        height: 60,
-                        width: 500,
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Center(
-                          child: Text('Submit'),
+                      GestureDetector(
+                        onTap: (){
+                          var student = StudentModel(studentName: sNameController.text, rollNo: sRollNoController.text,
+                              admnNo: sAdmnNoController.text, collegeName: sCollegeController.text);
+                          print(student.studentName);
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 500,
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Center(
+                            child: Text('Submit'),
+                          ),
                         ),
                       ),
                     ],
